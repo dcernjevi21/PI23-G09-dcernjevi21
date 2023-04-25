@@ -22,7 +22,15 @@ namespace EvaluationManagerG11
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e) {
+            
+        }
 
+        private void btnLogin_Click(object sender, EventArgs e) {
+            if (txtUsername.Text == "")
+                MessageBox.Show("Niste unijeli korisničku oznaku", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            else if (txtPassword.Text == "")
+                MessageBox.Show("Niste unijeli pasword", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
