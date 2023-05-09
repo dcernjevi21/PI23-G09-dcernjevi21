@@ -14,7 +14,7 @@ namespace Evaluation_Manager
     {
         public FrmStudents()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void FrmStudents_Load(object sender, EventArgs e)
