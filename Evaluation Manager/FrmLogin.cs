@@ -45,5 +45,10 @@ namespace Evaluation_Manager
                 }
             }
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

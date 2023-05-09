@@ -55,14 +55,14 @@ namespace Evaluation_Manager.Repositories
             int minPointsForGrade = int.Parse(reader["MinPointsForGrade"].ToString());
             int minPointsForSignature = int.Parse(reader["MinPointsForSignature"].ToString());
 
-            var activity = new Activity();
+            var activity = new Activity()
             {
-                Id = id;
-                Name = name;
-                Description = description;
-                MaxPoints = maxPoints;
-                MinPointsForGrade = minPointsForGrade;
-                MinPointsForSignature = minPointsForSignature;
+                Id = id,
+                Name = name,
+                Description = description,
+                MaxPoints = maxPoints,
+                MinPointsForGrade = minPointsForGrade,
+                MinPointsForSignature = minPointsForSignature
             };
             return activity;
         }
