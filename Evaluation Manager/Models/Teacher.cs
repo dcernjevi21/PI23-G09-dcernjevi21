@@ -13,7 +13,7 @@ namespace Evaluation_Manager.Models
         public string Password { get; set; }
          
         public bool CheckPassword(string password)
-        {
+        { 
             return Password == password;
         }
 
