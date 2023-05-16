@@ -1,4 +1,5 @@
 ﻿using Evaluation_Manager.Models;
+using Evaluation_Manager.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace Evaluation_Manager
     {
         public FrmStudents()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         private void FrmStudents_Load(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace Evaluation_Manager
             dgvStudents.Columns["Grade"].DisplayIndex = 3;
         }
 
-        private void btnStudent_Click(object sender, EventArgs e)
+        private void btnEvaluateStudent_Click(object sender, EventArgs e)
         {
             Student selectedStudent = dgvStudents.CurrentRow.DataBoundItem as Student;
             if (selectedStudent != null)

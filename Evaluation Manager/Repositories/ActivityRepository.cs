@@ -1,9 +1,9 @@
 ﻿using DBLayer;
+using Evaluation_Manager.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,8 +13,9 @@ namespace Evaluation_Manager.Repositories
     {
         public static Activity GetActivity(int id)
         {
+
             Activity activity = null;
-            string sql = $"SELECT * FROM Activities WHERE Id = {id}";
+            string sql = $"SELECT * from Activities where Id = {id}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             if (reader.HasRows)
@@ -24,26 +25,26 @@ namespace Evaluation_Manager.Repositories
                 reader.Close();
             }
             DB.CloseConnection();
+
             return activity;
         }
 
         public static List<Activity> GetActivities()
         {
-            List<Activity> activities = new List<Activity>();
-            string sql = "SELECT * FROM Activities";
+            List<Activity> activites = new List<Activity>();
+
+            string sql = "SELECT * from Activities";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
-            
             while (reader.Read())
             {
                 Activity activity = CreateObject(reader);
-                activities.Add(activity);
+                activites.Add(activity);
             }
-
             reader.Close();
             DB.CloseConnection();
 
-            return activities;
+            return activites;
         }
 
         private static Activity CreateObject(SqlDataReader reader)
@@ -51,11 +52,11 @@ namespace Evaluation_Manager.Repositories
             int id = int.Parse(reader["Id"].ToString());
             string name = reader["Name"].ToString();
             string description = reader["Description"].ToString();
-            int maxPoints = int.Parse(reader["MaxPoint"].ToString());
+            int maxPoints = int.Parse(reader["MaxPoints"].ToString());
             int minPointsForGrade = int.Parse(reader["MinPointsForGrade"].ToString());
             int minPointsForSignature = int.Parse(reader["MinPointsForSignature"].ToString());
 
-            var activity = new Activity()
+            Activity activity = new Activity
             {
                 Id = id,
                 Name = name,
